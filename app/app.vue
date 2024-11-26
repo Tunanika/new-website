@@ -35,10 +35,10 @@ useHead({
 })
 
 useSeoMeta({
-  author: 'Hugo Richard',
+  author: 'Tuna Erhanoglu',
   ogType: 'website',
   ogTitle: appConfig.appName,
-  ogSiteName: 'Canvas',
+  ogSiteName: 'Portfolio',
   ogUrl: () => runtimeConfig.public.siteUrl,
   ogLocale: () => locale.value,
   twitterTitle: appConfig.appName,
