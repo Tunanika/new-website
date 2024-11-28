@@ -29,6 +29,8 @@ const props = defineProps({
     required: true,
   },
 });
+
+// TODO: Add more photos and make photos clickable to open in a modal
 </script>
 
 <style></style>
