@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import photos from "./content/photos.json";
-console.log(photos);
+import photos from "public/photos.json";
 </script>
 
 <template>

@@ -29,8 +29,6 @@ const props = defineProps({
     required: true,
   },
 });
-
-console.log("EY BUD THIS BE THE PHOTO", props.photo);
 </script>
 
 <style></style>

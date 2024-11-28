@@ -1,6 +1,6 @@
 export default defineAppConfig({
-  appName: 'Canvas a Nuxt portfolio template',
-  appDescription: 'Canvas is a simple but beautiful portfolio template for designers and developers built with Nuxt and Tailwind CSS. Made with ❤️ by HugoRCD',
+  appName: 'Tuna Erhanoglu Portfolio Website',
+  appDescription: 'This is the personal portfolio website of Tuna Erhanoglu. Here you can find information about Tuna, his projects, and his blog posts.',
   profilePicture: '/assets/tuna.jpg',
   footerName: 'Tuna Erhanoglu',
   email: 'tuna@tunaerhanoglu.com',

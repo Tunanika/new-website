@@ -25,13 +25,6 @@ export default defineNuxtConfig({
     head: {
       viewport: 'width=device-width, initial-scale=1',
       charset: 'utf-8',
-      script: [
-        {
-          'src': 'https://analytics.hrcd.fr/js/script.js',
-          'defer': true,
-          'data-domain': 'canvas.hrcd.fr',
-        },
-      ],
     },
     pageTransition: {
       name: 'fade',
