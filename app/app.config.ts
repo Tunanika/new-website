@@ -9,7 +9,6 @@ export default defineAppConfig({
   openGraphImage: 'https://tunaerhanoglu.com/social-preview.jpg',
   socials: {
     github: 'https://github.com/tunanika',
-    twitter: 'https://twitter.com/tunaerhanoglu',
     linkedin: 'https://www.linkedin.com/in/tuna-e',
     instagram: 'https://www.instagram.com/tuna_erhanoglu_',
     spotify: 'https://open.spotify.com/user/uw9zmc69pb2mn1a59352s2ubj?si=19ed66528d134294',

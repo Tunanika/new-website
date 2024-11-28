@@ -42,11 +42,11 @@ export default defineNuxtConfig({
   css: ['~/assets/style/main.css'],
 
   site: {
-    url: process.env.NUXT_SITE_URL || 'https://canvas.hrcd.fr',
+    url: process.env.NUXT_SITE_URL || 'https://tunaerhanoglu.com',
     identity: {
       type: 'Person',
     },
-    twitter: '@HugoRCD__',
+    twitter: '@',
   },
 
   colorMode: {
