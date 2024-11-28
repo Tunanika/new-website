@@ -6,12 +6,12 @@
       "title": "Services",
       "questions": [
         {
-          "title": "What services do you offer?",
-          "answer": "I offer a range of services including web design, content creation and photography. I can also help with SEO and branding."
+          "title": "Are you a student",
+          "answer": "Yes, currently I am a first year Computer Science student at the Eindhoven University of Technology."
         },
         {
           "title": "What technologies do you use?",
-          "answer": "I mainly use Nuxt.js to make websites and Express for backend applications."
+          "answer": "I mainly use Nuxt.js to make websites and Express with typescript for backend applications."
         }
       ]
     },
@@ -24,7 +24,7 @@
         },
         {
           "title": "What equipment do you use?",
-          "answer": "I use a Canon 750d with a nifty fifty 50mm f1.8"
+          "answer": "I use a Canon 750d with a 50mm f1.8"
         }
       ]
     }

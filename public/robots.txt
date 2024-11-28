@@ -1,4 +1,4 @@
 User-agent: *
-Allow: /
+Disallow: /
 
-Sitemap: https://www.hrcd.fr/sitemap.xml
+Sitemap: https://tunaerhanoglu.com/sitemap.xml
