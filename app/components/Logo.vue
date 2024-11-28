@@ -24,7 +24,10 @@ defineProps({
       :class="size ? 'h-' + size : 'h-6'"
       :font-controlled="false"
     />
-    <span v-if="isText" class="ml-1 text-xs font-semibold">
+    <span
+      v-if="isText"
+      class="ml-1 text-xs font-semibold"
+    >
       {{ appName }}
     </span>
   </NuxtLink>
