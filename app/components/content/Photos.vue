@@ -1,7 +1,6 @@
 <script setup lang="ts">
-const { data: photos } = await useAsyncData("photos", () =>
-  queryContent("/photos").findOne()
-);
+import photos from "./content/photos.json";
+console.log(photos);
 </script>
 
 <template>
@@ -16,9 +15,11 @@ const { data: photos } = await useAsyncData("photos", () =>
     <div
       class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
     >
-      <div class="relative flex flex-col gap-3 sm:ml-4">
+      <div
+        class="relative grid grid-cols-1 gap-4 sm:ml-4 sm:grid-cols-2 gap-x-4 gap-y-8"
+      >
         <PhotosPhoto
-          v-for="photo in photos"
+          v-for="photo in photos.items"
           :key="photo.title"
           :photo="photo"
         />
