@@ -34,7 +34,7 @@ export default defineNuxtConfig({
   studio: {
     gitInfo: {
       name: 'new-website',
-      owner: 'tunanika',
+      owner: 'Tunanika',
       url: 'https://github.com/tunanika/new-website'
     }
   },
