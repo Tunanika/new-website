@@ -31,6 +31,13 @@ export default defineNuxtConfig({
       mode: 'out-in',
     },
   },
+  studio: {
+    gitInfo: {
+      name: 'new-website',
+      owner: 'tunanika',
+      url: 'https://github.com/tunanika/new-website'
+    }
+  },
 
   css: ['~/assets/style/main.css'],
 
