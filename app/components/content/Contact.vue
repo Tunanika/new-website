@@ -1,48 +1,58 @@
 <script setup lang="ts">
-import type { ContactEmail } from '~/types/ContactEmail'
+import type { ContactEmail } from "~/types/ContactEmail";
 
-const appConfig = useAppConfig()
-const { t } = useI18n()
+const appConfig = useAppConfig();
+const runtimeConfig = useRuntimeConfig();
 
-const email = ref('')
-const message = ref('')
-const phone = ref('')
-const fullname = ref('')
-const subject = ref('')
+const { t } = useI18n();
 
-const loading = ref(false)
+const email = ref("");
+const message = ref("");
+const phone = ref("");
+const fullname = ref("");
+const subject = ref("");
+
+const loading = ref(false);
 
 const contactData = computed(() => {
   return {
     email: email.value,
-    message: message.value,
-    phone: phone.value,
-    fullname: fullname.value,
     subject: subject.value,
-  } as ContactEmail
-})
+    message: message.value + (phone.value ? ` Phone: ${phone.value}` : ""),
+    name: fullname.value,
+    access_key: runtimeConfig.public.web3ApiKey,
+  } as ContactEmail;
+});
 
 async function submitForm() {
-  loading.value = true
+  loading.value = true;
   try {
-    await $fetch('/api/sendEmail', {
-      method: 'POST',
-      body: contactData.value,
-    })
-    email.value = ''
-    message.value = ''
-    phone.value = ''
-    fullname.value = ''
-    subject.value = ''
-    toast.success(t('contact.success'))
+    await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(contactData.value),
+    });
+    email.value = "";
+    message.value = "";
+    phone.value = "";
+    fullname.value = "";
+    subject.value = "";
+    toast.success(t("contact.success"));
+  } catch (error) {
+    toast.error(t("contact.error"));
   }
-  catch (error) {
-    toast.error(t('contact.error'))
-  }
-  loading.value = false
+  loading.value = false;
 }
 
-defineOgImage({ url: appConfig.openGraphImage, width: 1200, height: 630, alt: 'Home image' })
+defineOgImage({
+  url: appConfig.openGraphImage,
+  width: 1200,
+  height: 630,
+  alt: "Home image",
+});
 </script>
 
 <template>
@@ -60,10 +70,7 @@ defineOgImage({ url: appConfig.openGraphImage, width: 1200, height: 630, alt: 'H
         @submit.prevent="submitForm"
       >
         <!-- Fullname -->
-        <UFormGroup
-          label="Fullname"
-          required
-        >
+        <UFormGroup label="Fullname" required>
           <UInput
             id="full-name"
             v-model="fullname"
@@ -77,10 +84,7 @@ defineOgImage({ url: appConfig.openGraphImage, width: 1200, height: 630, alt: 'H
         </UFormGroup>
 
         <!-- Email -->
-        <UFormGroup
-          label="Email"
-          required
-        >
+        <UFormGroup label="Email" required>
           <UInput
             id="email"
             v-model="email"
@@ -94,9 +98,7 @@ defineOgImage({ url: appConfig.openGraphImage, width: 1200, height: 630, alt: 'H
         </UFormGroup>
 
         <!-- Phone -->
-        <UFormGroup
-          label="Phone"
-        >
+        <UFormGroup label="Phone">
           <UInput
             id="phone"
             v-model="phone"
@@ -109,10 +111,7 @@ defineOgImage({ url: appConfig.openGraphImage, width: 1200, height: 630, alt: 'H
         </UFormGroup>
 
         <!-- Subject -->
-        <UFormGroup
-          label="Subject"
-          required
-        >
+        <UFormGroup label="Subject" required>
           <UInput
             id="subject"
             v-model="subject"
@@ -124,10 +123,7 @@ defineOgImage({ url: appConfig.openGraphImage, width: 1200, height: 630, alt: 'H
         </UFormGroup>
 
         <!-- Message -->
-        <UFormGroup
-          label="Message"
-          required
-        >
+        <UFormGroup label="Message" required>
           <UTextarea
             id="message"
             v-model="message"
@@ -152,14 +148,12 @@ defineOgImage({ url: appConfig.openGraphImage, width: 1200, height: 630, alt: 'H
         </div>
       </form>
       <Divider class="my-10" />
-      <div class="flex w-full flex-col items-center justify-between gap-4 sm:flex-row">
+      <div
+        class="flex w-full flex-col items-center justify-between gap-4 sm:flex-row"
+      >
         <div class="flex flex-col gap-3">
           <dd class="flex items-center gap-3 text-gray-400">
-            <UIcon
-              name="heroicons-phone"
-              class="size-6"
-              aria-hidden="true"
-            />
+            <UIcon name="heroicons-phone" class="size-6" aria-hidden="true" />
             <span>
               {{ appConfig.phone }}
             </span>
@@ -170,10 +164,7 @@ defineOgImage({ url: appConfig.openGraphImage, width: 1200, height: 630, alt: 'H
               class="size-6"
               aria-hidden="true"
             />
-            <UTooltip
-              :text="$t('global.email')"
-              :shortcuts="['⌘', 'O']"
-            >
+            <UTooltip :text="$t('global.email')" :shortcuts="['⌘', 'O']">
               <NuxtLink
                 :to="`mailto:${appConfig.email}`"
                 class="cursor-pointer transition-colors duration-300 hover:text-main"
