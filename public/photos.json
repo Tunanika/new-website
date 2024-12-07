@@ -2,39 +2,63 @@
   "items": [
     {
       "title": "Christmas in Eindhoven",
-      "image": "eindhoven_christmas.jpg",
+      "image": "image_1.jpg",
       "description": "A street in Eindhoven during Christmas",
       "date": "2024-11-12"
     },
     {
-      "title": "Christmas in Eindhoven",
-      "image": "eindhoven_christmas.jpg",
-      "description": "A street in Eindhoven during Christmas",
+      "title": "A Paraglider",
+      "image": "image_2.jpg",
+      "description": "This photo was edited",
+      "date": "2021-07-26"
+    },
+    {
+      "title": "Tree During Glow",
+      "image": "image_3.jpg",
+      "description": "A tree in Eindhoven during the GLOW light festival",
       "date": "2024-11-12"
     },
     {
-      "title": "Christmas in Eindhoven",
-      "image": "eindhoven_christmas.jpg",
-      "description": "A street in Eindhoven during Christmas",
+      "title": "Building With a Clock",
+      "image": "image_4.jpg",
+      "description": "A building at night with a big clock",
       "date": "2024-11-12"
     },
     {
-      "title": "Christmas in Eindhoven",
-      "image": "eindhoven_christmas.jpg",
-      "description": "A street in Eindhoven during Christmas time",
-      "date": "2024-11-12"
+      "title": "A nice Sunset with the Moon",
+      "image": "image_5.jpg",
+      "description": "A sunset that looked beautiful",
+      "date": "2023-07-19"
     },
     {
-      "title": "Christmas in Eindhoven",
-      "image": "eindhoven_christmas.jpg",
-      "description": "A street in Eindhoven during Christmas",
-      "date": "2024-11-12"
+      "title": "Building in NYC",
+      "image": "image_6.jpg",
+      "description": "A building in New York City",
+      "date": "2024-01-22"
     },
     {
-      "title": "Christmas in Eindhoven",
-      "image": "eindhoven_christmas.jpg",
-      "description": "A street in Eindhoven during Christmas",
-      "date": "2024-11-12"
+      "title": "Red Car",
+      "image": "image_7.jpg",
+      "description": "A red car I saw on the street",
+      "date": "2024-10-20"
+    },
+    {
+      "title": "A Building in Eindhoven",
+      "image": "image_8.jpg",
+      "description": "A building I saw in Ketelhuis Eindhoven",
+      "date": "2024-10-20"
+    },
+    {
+      "title": "Mountains in the Distance",
+      "image": "image_9.jpg",
+      "description": "Some mountains I saw in the distance",
+      "date": "2021-07-24"
+    },
+    {
+      "title": "Boats in the Harbor",
+      "image": "image_10.jpg",
+      "description": "A harbor in Bodrum Turkiye",
+      "date": "2021-07-26"
     }
   ]
 }
