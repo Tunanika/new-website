@@ -1,10 +1,13 @@
 <template>
   <div v-if="photo">
-    <div @click="showModal = true" class="cursor-pointer">
+    <div
+      @click="showModal = true"
+      class="cursor-pointer hover:scale-105 transition-all duration-300"
+    >
       <img
         :src="'/photos/' + photo.image"
         :alt="photo.title"
-        class="rounded-lg border-4 border-muted"
+        class="rounded-lg border-4 border-muted hover:border-primary transition-all duration-300"
       />
       <div class="flex items-center justify-between flex-row mt-2">
         <h1>{{ photo.title }}</h1>
@@ -52,8 +55,6 @@ const props = defineProps({
     required: true,
   },
 });
-
-// TODO: Add more photos and make photos clickable to open in a modal
 </script>
 
 <style scoped>
