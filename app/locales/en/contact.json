@@ -8,12 +8,11 @@
   "message": "Message",
   "submit": "Send",
   "success": "Your message has been sent successfully",
-  "error": "Oups, an error occurred while sending your message",
-  "budget": "Budget",
-  "subject_types": {
-    "project": "Talk about a project",
-    "bug": "Report a bug",
-    "question": "Ask a question",
-    "other": "Other"
+  "error": "Please check the form for errors",
+  "validation": {
+    "required": "This field is required",
+    "email": "Please enter a valid email address",
+    "phone": "Please enter a valid phone number",
+    "minLength": "This field must be at least {min} characters"
   }
 }

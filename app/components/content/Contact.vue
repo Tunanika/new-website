@@ -6,25 +6,73 @@ const runtimeConfig = useRuntimeConfig();
 
 const { t } = useI18n();
 
-const email = ref("");
-const message = ref("");
-const phone = ref("");
-const fullname = ref("");
-const subject = ref("");
-
 const loading = ref(false);
 
-const contactData = computed(() => {
-  return {
-    email: email.value,
-    subject: subject.value,
-    message: message.value + (phone.value ? ` Phone: ${phone.value}` : ""),
-    name: fullname.value,
-    access_key: runtimeConfig.public.web3ApiKey,
-  } as ContactEmail;
+const form = reactive<ContactEmail>({
+  email: "",
+  subject: "",
+  message: "",
+  phone: "",
+  fullname: "",
+  budget: undefined,
 });
 
-async function submitForm() {
+const errors = reactive({
+  email: "",
+  subject: "",
+  message: "",
+  phone: "",
+  fullname: "",
+});
+
+const validateForm = (): boolean => {
+  let isValid = true;
+
+  // Reset errors
+  Object.keys(errors).forEach(
+    (key) => (errors[key as keyof typeof errors] = "")
+  );
+
+  // Fullname validation
+  if (!form.fullname || form.fullname.length < 2) {
+    errors.fullname = "Name must be at least 2 characters";
+    isValid = false;
+  }
+
+  // Email validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!form.email || !emailRegex.test(form.email)) {
+    errors.email = "Please enter a valid email address";
+    isValid = false;
+  }
+
+  // Phone validation (optional)
+  if (form.phone && !/^\+?[\d\s-]{8,}$/.test(form.phone)) {
+    errors.phone = "Please enter a valid phone number";
+    isValid = false;
+  }
+
+  // Subject validation
+  if (!form.subject || form.subject.length < 3) {
+    errors.subject = "Subject must be at least 3 characters";
+    isValid = false;
+  }
+
+  // Message validation
+  if (!form.message || form.message.length < 10) {
+    errors.message = "Message must be at least 10 characters";
+    isValid = false;
+  }
+
+  return isValid;
+};
+
+const submitForm = async () => {
+  if (!validateForm()) {
+    toast.error(t("contact.error"));
+    return;
+  }
+
   loading.value = true;
   try {
     await fetch("https://api.web3forms.com/submit", {
@@ -33,19 +81,17 @@ async function submitForm() {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-      body: JSON.stringify(contactData.value),
+      body: JSON.stringify(form),
     });
-    email.value = "";
-    message.value = "";
-    phone.value = "";
-    fullname.value = "";
-    subject.value = "";
     toast.success(t("contact.success"));
+
+    Object.keys(form).forEach((key) => (form[key as keyof ContactEmail] = ""));
   } catch (error) {
     toast.error(t("contact.error"));
+  } finally {
+    loading.value = false;
   }
-  loading.value = false;
-}
+};
 
 defineOgImage({
   url: appConfig.openGraphImage,
@@ -70,82 +116,95 @@ defineOgImage({
         @submit.prevent="submitForm"
       >
         <!-- Fullname -->
-        <UFormGroup label="Fullname" required>
+        <UFormGroup :label="$t('contact.fullname')" required>
           <UInput
-            id="full-name"
-            v-model="fullname"
+            v-model="form.fullname"
             type="text"
             required
             name="fullname"
             autocomplete="name"
             variant="none"
-            placeholder="John Doe"
+            :placeholder="$t('contact.fullname')"
+            :error="errors.fullname"
           />
+          <p v-if="errors.fullname" class="mt-1 text-sm text-red-500">
+            {{ errors.fullname }}
+          </p>
         </UFormGroup>
 
         <!-- Email -->
-        <UFormGroup label="Email" required>
+        <UFormGroup :label="$t('contact.email')" required>
           <UInput
-            id="email"
-            v-model="email"
+            v-model="form.email"
             type="email"
             required
             name="email"
             autocomplete="email"
             variant="none"
-            placeholder="john.doe@gmail.com"
+            :placeholder="$t('contact.email')"
+            :error="errors.email"
           />
+          <p v-if="errors.email" class="mt-1 text-sm text-red-500">
+            {{ errors.email }}
+          </p>
         </UFormGroup>
 
         <!-- Phone -->
-        <UFormGroup label="Phone">
+        <UFormGroup :label="$t('contact.phone')">
           <UInput
-            id="phone"
-            v-model="phone"
-            type="text"
+            v-model="form.phone"
+            type="tel"
             name="phone"
             autocomplete="tel"
             variant="none"
-            placeholder="123-456-7890"
+            :placeholder="$t('contact.phone')"
+            :error="errors.phone"
           />
+          <p v-if="errors.phone" class="mt-1 text-sm text-red-500">
+            {{ errors.phone }}
+          </p>
         </UFormGroup>
 
         <!-- Subject -->
-        <UFormGroup label="Subject" required>
+        <UFormGroup :label="$t('contact.subject')" required>
           <UInput
-            id="subject"
-            v-model="subject"
-            variant="none"
+            v-model="form.subject"
             type="text"
+            required
             name="subject"
+            variant="none"
             :placeholder="$t('contact.subject')"
+            :error="errors.subject"
           />
+          <p v-if="errors.subject" class="mt-1 text-sm text-red-500">
+            {{ errors.subject }}
+          </p>
         </UFormGroup>
 
         <!-- Message -->
-        <UFormGroup label="Message" required>
+        <UFormGroup :label="$t('contact.message')" required>
           <UTextarea
-            id="message"
-            v-model="message"
-            autoresize
-            variant="none"
+            v-model="form.message"
             required
             name="message"
-            :rows="4"
-            placeholder="Lets work together!"
+            variant="none"
+            :placeholder="$t('contact.message')"
+            :error="errors.message"
           />
+          <p v-if="errors.message" class="mt-1 text-sm text-red-500">
+            {{ errors.message }}
+          </p>
         </UFormGroup>
-        <div class="flex justify-center">
-          <UButton
-            :loading
-            type="submit"
-            color="gray"
-            loading-icon="i-lucide-loader"
-            block
-          >
-            {{ $t("contact.submit") }}
-          </UButton>
-        </div>
+
+        <!-- Submit Button -->
+        <UButton
+          type="submit"
+          :loading="loading"
+          :disabled="loading"
+          class="mt-4"
+        >
+          {{ $t("contact.submit") }}
+        </UButton>
       </form>
       <Divider class="my-10" />
       <div
@@ -181,3 +240,9 @@ defineOgImage({
     </div>
   </section>
 </template>
+
+<style scoped>
+.error-message {
+  @apply mt-1 text-sm text-red-500;
+}
+</style>
