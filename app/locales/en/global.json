@@ -18,5 +18,11 @@
   "meeting": "Schedule a meeting",
   "available": "Available for new opportunities",
   "unavailable": "Currently working on other awesome projects",
-  "all_rights_reserved": "All rights reserved"
+  "all_rights_reserved": "All rights reserved",
+  "sort": {
+    "date_desc": "Date (Newest First)",
+    "date_asc": "Date (Oldest First)",
+    "title_asc": "Title (A-Z)",
+    "title_desc": "Title (Z-A)"
+  }
 }
