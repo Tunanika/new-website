@@ -22,7 +22,7 @@ useHead({
 });
 
 useSeoMeta({
-  description: () => t("global.app_description"),
+  description: () => page.value?.description || t("global.app_description"),
   author: "Tuna Erhanoglu",
   ogImage: "https://tunaerhanoglu.com/social-preview.jpg",
   ogType: "website",
