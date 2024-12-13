@@ -15,11 +15,11 @@ So you are a high school student and you want to earn a free MacBook? Well, you 
 
 ## What is the High Seas Program?
 
-[High Seas](https://highseas.hackclub.com) is made by the Hack Club organization. It is a program that allows high schools students to earn points
+[High Seas](https://highseas.hackclub.com) is organized by the Hack Club organization. It is a program that allows high schools students to earn points
 just by making projects themselves and logging their hours with the high-seas plugin. The more points (which are called doubloons)
 you earn, the more rewards you can get. The rewards include a free MacBook, a raspberry pi, a bambulab 3d printer and much more.
 
-It's also in collaboration with Github.
+The program is also in collaboration with Github.
 ![Rewards showing a raspberry pi, a mouse and a drawer robot](https://tunaerhanoglu.com/articles/high-seas-rewards.png)
 
 ## How to get started?
@@ -38,9 +38,10 @@ you need 4000 doubloons. Which is between 167 to 833 hours of work according to 
 reasonably easy to get like a raspberry pi, a mx master 3s mouse, a flipper zero and much more. For example, it only took me
 8 hours to get the very cool type c powered soldering iron.So don't get discouraged and be sure to check them out yourself!
 
-One more thing that I should mention is that the deadline is 31 January 2025. But they also did this last year so they may do it again in 2026.
+One more thing that I should mention is that the deadline is 31 January 2025. But they also did this last year so they may do it again in 2026 if you already
+missed the deadline.
 
 ## Conclusion
 
-Well that's it. Now you can build projects and earn free stuff along the way. And those can be anything you want. I am actually
-earning doubloons right now by writing this blog post. So go ahead and start building something cool!
+Well that's it. Now you can build projects and earn free stuff along the way. And those can be anything you want. I actually
+logged this whole website as a project so even this blog post earned me a few doubloons. So go ahead and start building something cool!
