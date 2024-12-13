@@ -16,7 +16,7 @@ I never got around to it. But now, I finally published my new portfolio website 
 
 ## Here are some pages you can check out:
 
-- [Articles](/articles)
+- [Articles](/writing)
 - [Projects](/works)
 - [About](/about)
 - [Photos](/photos)
