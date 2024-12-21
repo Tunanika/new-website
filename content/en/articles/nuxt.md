@@ -6,12 +6,49 @@ tags: ["Nuxt", "Development", "Design", "Vue"]
 image: "/articles/nuxt.jpg"
 readingTime: "10"
 ---
+
 ---
 
 # Why Nuxt is great for development?
 
-Almost 2 years ago, I discovered this new vue framework called NuxtJS. I was amazed by the devtools and the ease of use!
-Since then, I have been using Nuxt for almost all of the websites I build. Including the one you are reading this blog right now.
+First off, let me tell you a little bit about Nuxt itself. Nuxt is a vue framework. So that means it's based on
+vue and in my opinion the best way to use vue. And it's also a full stack framework meaning that you can have
+a simple backend and the frontend all in one. This has a few advantages that I will get on later on. For now,
+let's get started! Oh by the way the website you are reading this blog post on right now is built with Nuxt too!
+
+# How I got started with Nuxt?
+
+It was actually quite by accident. I had just started a new internship at a company and they were using nuxt,
+so that meant that I also had to learn nuxt. But it didn't take long for me to love it and get used to it so
+much that I kept using it and making all my future websites with it. The reactivity, the devtools, the ssr
+(server side rendering). I had just fallen in love with it. Therefore, to this day, I use Nuxt for everything
+I do.
+
+# Advantages of Nuxt
+
+Earlier on, I mentioned a bit about how Nuxt being a full stack framework has a few advantages. Well what are
+them?
+
+- Server Side Rendering
+- Speed
+- Ease of building your application
+
+## SSR (Server Side Rendering)
+
+So one of the mst spoken parts of Nuxt is it's awesome useFetch composable. useFetch is basically replacing the
+fetch function in Nuxt. This allows you to directly call the server of nuxt with useFetch using your path like:
+
+```ts
+useFetch("/api/products");
+```
+
+This way, Nuxt can even preload the data with the page. And we have now discovered SSR!
+
+### How this may be useful?
+
+Let's say you're trying to load a page with some data with it, instead of loading the page up and making the client
+get the data afterwards with another fetch command, the server just serves the data along with the html sent to
+the user. This way, you save on a secondary fetch call and it's faster and more efficient for the user.
 
 # How to get started with Nuxt?
 
@@ -53,3 +90,8 @@ Here's devtools:
 
 I absolutely love using Nuxt and I would argue that it's the best Vue framework out there. It's easy to use, has a growing community and it's just fun to work with.
 So if you are looking for a new vue framework or just looking for something to build websites with, I would highly recommend NuxtJS.
+
+### Any Errors in this post?
+
+If you come across anything I mentioned wrong or if there is something you think that should be added here, feel free to [contact](/contact)
+me about it! I am open to suggestions and of course I don't want to spread misinforrmation ':)'
