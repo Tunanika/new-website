@@ -1,5 +1,5 @@
 ---
-title: "How you can earn a FREE MacBook!"
+title: "How High Schoolers can earn a FREE MacBook!"
 date: "30/11/2024"
 description: "NuxtJS, a developer friendly vue famework!"
 tags: ["Nuxt", "Development", "Design", "Vue"]
