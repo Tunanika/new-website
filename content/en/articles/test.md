@@ -4,7 +4,6 @@ date: "28/11/2024"
 description: "This is some description right here"
 tags: ["Portfolio", "Development", "Design", "Productivity"]
 image: "https://www.tunaerhanoglu.com/social-preview2.jpg"
-readingTime: "1"
 ---
 
 ---
@@ -16,7 +15,7 @@ I never got around to it. But now, I have finally published my new portfolio web
 
 ## Here are some pages you can check out:
 
-- [Articles](/articles)
+- [Articles](/writing)
 - [Projects](/works)
 - [About](/about)
 - [Photos](/photos)

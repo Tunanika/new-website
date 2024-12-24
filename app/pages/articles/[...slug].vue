@@ -1,12 +1,24 @@
 <script lang="ts" setup>
 import { Toaster } from "vue-sonner";
+import { calculateReadingTime } from "~/utils/readingTime";
 
 const { t, locale } = useI18n();
 
 const route = useRoute();
-const { data: page } = await useAsyncData(`${route.path}`, () =>
-  queryContent(route.path).findOne()
-);
+const { data: page } = await useAsyncData(`${route.path}`, async () => {
+  const article = await queryContent(route.path).findOne();
+
+  // Calculate reading time if not manually specified
+  if (!article.readingTime) {
+    const content =
+      article.body?.children
+        ?.map((node) => node.children?.map((child) => child.value).join(" "))
+        .join(" ") || "";
+    article.readingTime = calculateReadingTime(content);
+  }
+
+  return article;
+});
 
 if (!page.value) {
   throw createError({ statusCode: 404, statusMessage: "Page not found" });
