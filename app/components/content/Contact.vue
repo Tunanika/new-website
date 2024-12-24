@@ -14,7 +14,7 @@ const form = reactive<ContactEmail>({
   message: "",
   phone: "",
   fullname: "",
-  budget: undefined,
+  access_key: runtimeConfig.public.web3ApiKey,
 });
 
 const errors = reactive({
@@ -75,7 +75,7 @@ const submitForm = async () => {
 
   loading.value = true;
   try {
-    await fetch("https://api.web3forms.com/submit", {
+    const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -83,6 +83,10 @@ const submitForm = async () => {
       },
       body: JSON.stringify(form),
     });
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
     toast.success(t("contact.success"));
 
     Object.keys(form).forEach((key) => (form[key as keyof ContactEmail] = ""));

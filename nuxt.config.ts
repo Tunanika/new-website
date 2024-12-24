@@ -72,7 +72,6 @@ export default defineNuxtConfig({
     locales: ['en'],
     defaultLocale: 'en',
   },
-
   runtimeConfig: {
     public: {
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL,
