@@ -12,7 +12,7 @@ readingTime: "1"
 # Why Did I Finally Make a Better Portfolio Website?
 
 I have been using the same old one page portfolio website for a long time. And I have been meaning to make a better one for a while but
-I never got around to it. But now, I finally published my new portfolio website and you are seeing it right now.
+I never got around to it. But now, I have finally published my new portfolio website and you are seeing it right now.
 
 ## Here are some pages you can check out:
 
