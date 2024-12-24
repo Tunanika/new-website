@@ -4,7 +4,6 @@ date: "30/11/2024"
 description: "NuxtJS, a developer friendly vue famework!"
 tags: ["Nuxt", "Development", "Design", "Vue"]
 image: "/articles/high-seas.png"
-readingTime: "10"
 ---
 
 ---
