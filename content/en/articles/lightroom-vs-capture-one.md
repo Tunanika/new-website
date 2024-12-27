@@ -65,3 +65,10 @@ of Lightroom over Capture One.
 - Mask Edits:
   While in lightroom you can edit most stuff with masks and it has been plenty enough for me, in capture one you can edit everything with masks.
   Which means that everything you can edit on your normal edit settings, you can edit with the masks too which is great.
+
+## Pricing And Value
+
+Now we have reached an important part of the comparison. The pricing. At the time of this blog, capture one All In One subscription is 25.9 euros per month.
+This is quite a bit more expensive than the 12 euro per month lightroom and Photoshop subscription. You can also choose to get the less expensive pro
+version for 17.9 euros but then you don't get the iPad app which is important for me. So, in terms of pricing, I would say Lightroom is a clear winner.
+You pay less in either case, and you get photoshop included with your subscription which is awesome.
