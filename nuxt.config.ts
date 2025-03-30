@@ -107,7 +107,7 @@ export default defineNuxtConfig({
       cookieKey: 'i18n_redirected',
       redirectOn: 'root',
     },
-    baseUrl: '/',
+    baseUrl:  process.env.NUXT_PUBLIC_SITE_URL || 'https://tunaerhanoglu.com',
     locales: ['en'],
     defaultLocale: 'en',
     vueI18n: '~/i18n.config.ts',
